@@ -1,8 +1,9 @@
 {
-    "name": "Jih.OpenGames",
-    "rootNamespace": "Jih.OpenGames",
+    "name": "Jih.OpenGames.Breakout",
+    "rootNamespace": "Jih.OpenGames.Breakout",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:ed0d0c1e9244ab841a97316c8519c5db"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
