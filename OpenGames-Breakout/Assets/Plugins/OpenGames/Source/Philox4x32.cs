@@ -14,7 +14,7 @@ namespace Jih.OpenGames
     /// Supports random access to the random numbers sequence by position value.
     /// </summary>
     /// <remarks>
-    /// This implementation does not use caching and generating occurs on demand.<br/>
+    /// This implementation does not use caching. Generating occurs on demand.<br/>
     /// Thread-safe.
     /// </remarks>
     public class Philox4x32
