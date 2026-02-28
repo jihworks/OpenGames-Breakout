@@ -12,7 +12,7 @@ namespace Jih.OpenGames.Runtime
 {
     /// <summary>
     /// This is a <b>struct</b> to avoid cache-miss and GC pressure.<br/>
-    /// <b>DO NOT</b> use <c>readonly</c> for this field.
+    /// <b>DO NOT</b> use <c>readonly</c> for this field.<br/>
     /// <b>DO NOT</b> use automatically implemented property.
     /// </summary>
     /// <remarks>

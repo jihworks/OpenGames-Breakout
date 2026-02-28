@@ -12,4 +12,25 @@ namespace Jih.OpenGames.Runtime
         void Begin(IState? prev);
         void End(IState? next);
     }
+
+    public abstract class StateBase<TOwner> : IState
+    {
+        public TOwner Owner { get; }
+
+        public StateBase(TOwner owner)
+        {
+            Owner = owner;
+        }
+
+        public virtual void Begin(IState? prev)
+        {
+        }
+        public virtual void End(IState? next)
+        {
+        }
+
+        public virtual void Update()
+        {
+        }
+    }
 }

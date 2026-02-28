@@ -5,20 +5,10 @@
 
 #nullable enable
 
-using UnityEngine;
-
 namespace Jih.OpenGames.Breakout
 {
-    public class MainScript : MonoBehaviour
+    public class Player
     {
-        void Start()
-        {
 
-        }
-
-        void Update()
-        {
-
-        }
     }
 }
