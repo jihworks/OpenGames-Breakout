@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Jih.OpenGames
@@ -28,6 +29,7 @@ namespace Jih.OpenGames
         /// This method does not use <see cref="Component.GetComponent{T}()"/> to prevent adding new Component to the GameObject if the Component not found.
         /// </remarks>
         /// <exception cref="System.InvalidOperationException">Throws if the component not found</exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static TComponent GetComponentOrThrow<TComponent>(this GameObject gameObject) where TComponent : Component
         {
             if (gameObject.TryGetComponent(out TComponent? component) && component is not null)
@@ -86,6 +88,7 @@ namespace Jih.OpenGames
         /// <summary>
         /// Checks if the <see cref="GameObject.activeSelf"/> state first and sets when the state is different with given value.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void SetActiveSelfIfDiff(this GameObject gameObject, bool active)
         {
             if (gameObject.activeSelf == active)

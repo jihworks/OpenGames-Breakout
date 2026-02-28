@@ -18,6 +18,7 @@ namespace Jih.OpenGames
             return 0 <= index && index < collection.Count;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool TryGetValueAt<T>(this IReadOnlyList<T> collection, int index, out T? value)
         {
             if (collection.IsValidIndex(index))

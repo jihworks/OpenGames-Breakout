@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 namespace Jih.OpenGames
 {
     /// <remarks>
-    /// <b>NOT</b> thread safe.
+    /// <b>NOT</b> thread-safe.
     /// </remarks>
     public class Roulette<T> : IReadOnlyList<RouletteItem<T?>>
     {

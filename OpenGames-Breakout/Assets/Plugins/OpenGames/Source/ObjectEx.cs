@@ -5,6 +5,7 @@
 
 #nullable enable
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Jih.OpenGames
@@ -19,15 +20,16 @@ namespace Jih.OpenGames
         /// </remarks>
         /// <param name="objectName">Debugging purpose <paramref name="obj"/>'s name.</param>
         /// <exception cref="System.NullReferenceException">Throws if the given object is system <c>null</c> or Unity null.</exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static T ThrowIfNull<T>(this T? obj, string objectName) where T : class
         {
-            if (obj is Object uobj && uobj == null)
-            {
-                throw new System.NullReferenceException($"Unity object '{objectName}' is null.");
-            }
             if (obj is null)
             {
                 throw new System.NullReferenceException($"Object '{objectName}' is null.");
+            }
+            if (obj is Object uobj && uobj == null)
+            {
+                throw new System.NullReferenceException($"Unity object '{objectName}' is null.");
             }
             return obj;
         }
@@ -39,15 +41,16 @@ namespace Jih.OpenGames
         /// </remarks>
         /// <param name="objectName">Debugging purpose <paramref name="obj"/>'s name.</param>
         /// <exception cref="System.NullReferenceException">Throws if the given object is system <c>null</c> or Unity null.</exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void ThrowIfNull<T>(this T? obj, out T value, string objectName) where T : class
         {
-            if (obj is Object uobj && uobj == null)
-            {
-                throw new System.NullReferenceException($"Unity object '{objectName}' is null.");
-            }
             if (obj is null)
             {
                 throw new System.NullReferenceException($"Object '{objectName}' is null.");
+            }
+            if (obj is Object uobj && uobj == null)
+            {
+                throw new System.NullReferenceException($"Unity object '{objectName}' is null.");
             }
             value = obj;
         }
