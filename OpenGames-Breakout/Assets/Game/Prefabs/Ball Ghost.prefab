@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1083ee4d954a1439e8e5adb13b144a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Jih.OpenGames.Breakout::Jih.OpenGames.Breakout.BallGhostScript
+  _spriteRenderers:
+  - {fileID: 3860329754972650987}
 --- !u!1 &5817247468972884951
 GameObject:
   m_ObjectHideFlags: 0

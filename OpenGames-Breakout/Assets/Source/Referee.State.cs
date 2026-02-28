@@ -6,15 +6,14 @@
 #nullable enable
 
 using Jih.OpenGames.Runtime;
-using UnityEngine;
 
 namespace Jih.OpenGames.Breakout
 {
-    public partial class Main
+    public partial class Referee
     {
-        abstract class State : StateBase<Main>
+        abstract class State : StateBase<Referee>
         {
-            public State(Main owner) : base(owner)
+            protected State(Referee owner) : base(owner)
             {
             }
 
@@ -25,36 +24,34 @@ namespace Jih.OpenGames.Breakout
 
         class Sleep : State
         {
-            public Sleep(Main owner) : base(owner)
+            public Sleep(Referee owner) : base(owner)
             {
             }
         }
 
         class Play : State
         {
-            public Referee Referee { get; }
-
-            public Play(Main owner, Player player, Round round) : base(owner)
+            public Play(Referee owner) : base(owner)
             {
-                Referee = new Referee(player, round);
             }
 
             public override void Begin(IState? prev)
             {
                 base.Begin(prev);
 
-                Owner.InputFrameStack.Push(new InputFrame(this, ui: false, player: true));
-                Owner.CursorFrameStack.Push(new CursorFrame(this, lockMode: CursorLockMode.Locked, cursorVisible: false));
-
-                Referee.BeginPlay();
+                Owner.PlaceBlocksForBeginPlay();
+                Owner.Paddle.BeginPlay(Owner);
+                Owner.Ball.BeginPlay(Owner);
             }
 
             public override void End(IState? next)
             {
-                Referee.Dispose();
-
-                Owner.CursorFrameStack.Pop(this);
-                Owner.InputFrameStack.Pop(this);
+                Owner.Ball.EndPlay();
+                Owner.Paddle.EndPlay();
+                foreach (var block in Owner._blocks)
+                {
+                    block.EndPlay();
+                }
 
                 base.End(next);
             }
@@ -63,14 +60,15 @@ namespace Jih.OpenGames.Breakout
             {
                 base.Update();
 
-                Referee.Update();
+                Owner.UpdateGhosts();
             }
 
             public override void FixedUpdate()
             {
                 base.FixedUpdate();
 
-                Referee.FixedUpdate();
+                Owner.UpdatePaddleInput();
+                Owner.UpdateBallMovement();
             }
         }
     }

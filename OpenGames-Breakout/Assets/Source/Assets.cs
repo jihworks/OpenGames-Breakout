@@ -17,15 +17,21 @@ namespace Jih.OpenGames.Breakout
         static SingletonStorage<Assets> _instance;
         public static Assets Instance => _instance.Get();
 
-        [SerializeField] GameObject[] _blockAssets = Array.Empty<GameObject>();
-        public IReadOnlyList<GameObject> BlockAssets => _blockAssets;
+        [SerializeField] GameObject[] _blockPrefabs = Array.Empty<GameObject>();
+        public IReadOnlyList<GameObject> BlockPrefabs => _blockPrefabs;
 
-        [SerializeField] GameObject? _ballGhostAsset;
-        public GameObject BallGhostAsset => _ballGhostAsset.ThrowIfNull(nameof(BallGhostAsset));
+        [SerializeField] GameObject? _ballGhostPrefab;
+        public GameObject BallGhostPrefab => _ballGhostPrefab.ThrowIfNull(nameof(BallGhostPrefab));
 
         public Assets()
         {
             _instance = new SingletonStorage<Assets>(this);
+        }
+
+        public GameObject GetBlockPrefab(int rowIndex)
+        {
+            int prefabIndex = rowIndex / 2;
+            return _blockPrefabs[prefabIndex];
         }
     }
 }

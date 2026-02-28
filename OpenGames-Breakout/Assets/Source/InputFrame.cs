@@ -11,12 +11,23 @@ namespace Jih.OpenGames.Breakout
 {
     public class InputFrame : InputFrame<InputSystem_Actions>
     {
-        public InputFrame(object holder, bool ui) : base(holder, ui)
+        public bool Player { get; }
+
+        public InputFrame(object holder, bool ui, bool player) : base(holder, ui)
         {
+            Player = player;
         }
 
         protected override void DoApply(InputSystem_Actions inputActions)
         {
+            if (Player)
+            {
+                inputActions.Player.Enable();
+            }
+            else
+            {
+                inputActions.Player.Disable();
+            }
         }
     }
 }

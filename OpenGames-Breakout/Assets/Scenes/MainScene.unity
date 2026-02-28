@@ -149,6 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Jih.OpenGames.Breakout::Jih.OpenGames.Breakout.MainScript
   _inputSystemUIInputModule: {fileID: 283701650}
+  _ball: {fileID: 1893786974}
+  _paddle: {fileID: 1130471725}
+  _blocksRoot: {fileID: 832402320}
+  _ballGhostsRoot: {fileID: 1428062931}
 --- !u!4 &19895875
 Transform:
   m_ObjectHideFlags: 0
@@ -178,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 5e719704444e2934daa255bc936c0356, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 5e719704444e2934daa255bc936c0356, type: 3}
       propertyPath: m_LocalPosition.y
@@ -240,7 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
       propertyPath: m_LocalPosition.y
@@ -381,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
       propertyPath: m_LocalPosition.y
@@ -664,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 252d70279839f8a459d9f501dacb1ef6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 252d70279839f8a459d9f501dacb1ef6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -737,7 +741,7 @@ Transform:
   m_GameObject: {fileID: 832402319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -220, z: 0}
+  m_LocalPosition: {x: -500, y: -220, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -752,7 +756,6 @@ Transform:
   - {fileID: 1071232258}
   - {fileID: 122415078}
   - {fileID: 1470290997}
-  - {fileID: 1947420147}
   m_Father: {fileID: 1066482675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &881209988
@@ -769,7 +772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
       propertyPath: m_LocalPosition.y
@@ -831,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: ea8116a8e4015bb45811fe90f577db28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: ea8116a8e4015bb45811fe90f577db28, type: 3}
       propertyPath: m_LocalPosition.y
@@ -893,7 +896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
       propertyPath: m_LocalPosition.y
@@ -971,7 +974,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
+  - {fileID: 1947420147}
   - {fileID: 832402320}
+  - {fileID: 1428062931}
   - {fileID: 1893786973}
   - {fileID: 1130471724}
   m_Father: {fileID: 0}
@@ -990,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 5e719704444e2934daa255bc936c0356, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 5e719704444e2934daa255bc936c0356, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1100,6 +1105,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2585285558638367222, guid: 93be2f1997c007c489e96ac160e5548a, type: 3}
   m_PrefabInstance: {fileID: 1130471723}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1130471725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7127812062751704739, guid: 93be2f1997c007c489e96ac160e5548a, type: 3}
+  m_PrefabInstance: {fileID: 1130471723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2053b22d254b9a0429c4e6454f93c507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Jih.OpenGames.Breakout::Jih.OpenGames.Breakout.PaddleScript
+--- !u!1 &1428062930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1428062931}
+  m_Layer: 0
+  m_Name: Ball Ghosts Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1428062931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428062930}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1066482675}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1470290996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1118,7 +1165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 5e719704444e2934daa255bc936c0356, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 5e719704444e2934daa255bc936c0356, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1296,12 +1343,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c76e6e3071fa3d4e93f1bc495a1cf1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Jih.OpenGames.Breakout::Jih.OpenGames.Breakout.Assets
-  _blockAssets:
+  _blockPrefabs:
   - {fileID: 1650678690885559813, guid: 097e9a4bd7a70514798b6d7cdd2a0b53, type: 3}
   - {fileID: 1650678690885559813, guid: 252d70279839f8a459d9f501dacb1ef6, type: 3}
   - {fileID: 1650678690885559813, guid: ea8116a8e4015bb45811fe90f577db28, type: 3}
   - {fileID: 1650678690885559813, guid: 5e719704444e2934daa255bc936c0356, type: 3}
-  _ballGhostAsset: {fileID: 4904630475113070767, guid: 62a6d596b7cf9bd45bf7029bd77b5626, type: 3}
+  _ballGhostPrefab: {fileID: 4904630475113070767, guid: 62a6d596b7cf9bd45bf7029bd77b5626, type: 3}
 --- !u!4 &1568565003
 Transform:
   m_ObjectHideFlags: 0
@@ -1379,6 +1426,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 728941403855852284, guid: 418997dd8daf4ad428d3aae26ba86033, type: 3}
   m_PrefabInstance: {fileID: 1893786972}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1893786974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4132943470008575825, guid: 418997dd8daf4ad428d3aae26ba86033, type: 3}
+  m_PrefabInstance: {fileID: 1893786972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a8ea7e868f370459f6b0fcae787869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Jih.OpenGames.Breakout::Jih.OpenGames.Breakout.BallScript
 --- !u!1001 &1919240260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1393,7 +1451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 252d70279839f8a459d9f501dacb1ef6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: 252d70279839f8a459d9f501dacb1ef6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1447,7 +1505,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 832402320}
+    m_TransformParent: {fileID: 1066482675}
     m_Modifications:
     - target: {fileID: 4051153362555479490, guid: 6cb2d26aa247cc944952b5ba3eaf8665, type: 3}
       propertyPath: m_Name
@@ -1459,7 +1517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6107554140005637164, guid: 6cb2d26aa247cc944952b5ba3eaf8665, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -220
       objectReference: {fileID: 0}
     - target: {fileID: 6107554140005637164, guid: 6cb2d26aa247cc944952b5ba3eaf8665, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1517,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: ea8116a8e4015bb45811fe90f577db28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3787318008481690078, guid: ea8116a8e4015bb45811fe90f577db28, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1565,12 +1623,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3787318008481690078, guid: ea8116a8e4015bb45811fe90f577db28, type: 3}
   m_PrefabInstance: {fileID: 2065953627}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2084522560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084522562}
+  - component: {fileID: 2084522561}
+  m_Layer: 0
+  m_Name: Rules
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2084522561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084522560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb1956ebd0c9ef4694adc585b719a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Jih.OpenGames.Breakout::Jih.OpenGames.Breakout.Rules
+  _ballRadius: 20
+  _killY: -720
+  _baseBallSpeed: 400
+  _initialBallShootDegrees:
+  - 30
+  - 45
+  - 60
+  - 120
+  - 135
+  - 150
+  _horizontalBallDirectionY: 0.05
+  _paddleWingWidth: 50
+  _paddleTotalWidth: 240
+  _basePaddleSpeed: 500
+  _paddleXLimit: 600
+  _paddleBodyHitAngleRange: 30
+  _paddleWingHitStartAngle: 60
+  _paddleWingHitAngleRange: 20
+  _blockColumnCount: 6
+  _blockRowCount: 8
+  _blockOccupyingSize: {x: 200, y: 100}
+--- !u!4 &2084522562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084522560}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 19895875}
   - {fileID: 1568565003}
+  - {fileID: 2084522562}
   - {fileID: 619394802}
   - {fileID: 1516004545}
   - {fileID: 283701652}
