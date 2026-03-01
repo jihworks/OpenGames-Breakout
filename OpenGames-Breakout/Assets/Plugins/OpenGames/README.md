@@ -34,7 +34,7 @@ This approach helps prevent chronic `NullReferenceException` issues and provides
 
 Unity provides static properties to set global states (e.g., `Time`, `Cursor`). While easy to use at a small scale, as the project grows, it becomes difficult to track where and why a state was changed, and restoring the original state becomes a challenge.  
 To solve this, the **FrameStack** paradigm was introduced. It is inspired by stack pointer restoration (function frames) in low-level programming.
-* State changes are recorded in data units called `Frame`s. These frames are `Push`ed or `Popp`ed through the `FrameStack` to modify or restore the engine's global state.
+* State changes are recorded in data units called `Frame`s. These frames are `Push`ed or `Pop`ped through the `FrameStack` to modify or restore the engine's global state.
 * Each `Frame` is designed to be utilized only within a scope that references a pre-designated `Holder` object, enhancing restoration stability. This system works neatly when integrated with state machines.
 * The APIs are located in the `Jih.OpenGames.Runtime` namespace. `IState` and `StateBase` in the same namespace provide the archetypes for the state machine.
 ``` csharp
