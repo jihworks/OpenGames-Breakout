@@ -44,7 +44,7 @@ namespace Jih.OpenGames.UI
     /// This class getting the layer's GameObject from the <see cref="IUILayer.GetRootCanvasGroup"/>.<br/>
     /// <br/>
     /// But when the layer removed from the stack-structure, this class will call <see cref="IUILayer.Detach"/> and <b>do nothing</b>.<br/>
-    /// Because if detach the GameObject, RectTransform's information will be lost. So the layer should handle the detach mechanism by itself.<br/>
+    /// Because if detach the GameObject, RectTransform's information will be lost. So <b>the layer should handle the detach mechanism by itself</b>.<br/>
     /// Set GameObject.activeSelf or move the GameObject to other backing Canvas may be solution.<br/>
     /// </para>
     /// <para>
@@ -52,7 +52,7 @@ namespace Jih.OpenGames.UI
     /// Also does not handle active state of the layer's GameObject.
     /// </para>
     /// <para>
-    /// <see cref="IUILayerComponent"/>s in <see cref="IUILayer"/> can receive the activation and deactivation events of the x.
+    /// <see cref="IUILayerComponent"/>s in <see cref="IUILayer"/> can receive the activation and deactivation events of the layer.
     /// </para>
     /// <para>
     /// You can get a <see cref="UnityEngine.EventSystems.EventSystem"/> by adding a Canvas to the scene. Unity will create one to the scene.
