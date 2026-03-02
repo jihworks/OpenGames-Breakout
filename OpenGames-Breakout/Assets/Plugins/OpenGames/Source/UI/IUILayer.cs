@@ -11,6 +11,8 @@ using UnityEngine;
 
 namespace Jih.OpenGames.UI
 {
+    /// <seealso cref="UILayerStack"/>
+    /// <seealso cref="UILayerBaseScript"/>
     public interface IUILayer
     {
         static readonly ListPool<Component> _componentsListPool = new(isThreadSafe: true);
@@ -59,6 +61,21 @@ namespace Jih.OpenGames.UI
         }
 
         /// <summary>
+        /// This method is used to track activation state of this layer.
+        /// </summary>
+        /// <remarks>
+        /// <b>DO NOT</b> manipulate the activation state of this layer by itself. The <see cref="UILayerStack"/> will call this method when it needs to change the activation state of this layer.
+        /// </remarks>
+        public bool GetLayerIsActive();
+        /// <summary>
+        /// This method is used to track activation state of this layer.
+        /// </summary>
+        /// <remarks>
+        /// <b>DO NOT</b> manipulate the activation state of this layer by itself. The <see cref="UILayerStack"/> will call this method when it needs to change the activation state of this layer.
+        /// </remarks>
+        public void SetLayerIsActive(bool active);
+
+        /// <summary>
         /// It requires to disable or enable the inputs.
         /// </summary>
         /// <remarks>
@@ -73,6 +90,9 @@ namespace Jih.OpenGames.UI
         /// </summary>
         public GameObject? GetFocusedObject();
 
+        public void OnAdding();
+        public void OnAdded();
+
         public void OnActivating();
         public void OnActivated();
 
@@ -82,7 +102,8 @@ namespace Jih.OpenGames.UI
         public void OnObjectFocusing();
         public void OnObjectFocused(GameObject? focusedObject);
 
-        public void PerformAction(string id, object? args);
+        /// <returns>Whether the action has been handled or not.</returns>
+        public bool PerformAction(string id, object? args);
 
         public void OnAttaching();
         public void OnAttached();

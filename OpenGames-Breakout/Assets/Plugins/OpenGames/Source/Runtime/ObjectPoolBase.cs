@@ -90,7 +90,7 @@ namespace Jih.OpenGames.Runtime
                 item = Create();
             }
 
-            // Initialize the object.
+            // Initialize_Internal the object.
             Activate(item);
 
             return item;
@@ -208,7 +208,7 @@ namespace Jih.OpenGames.Runtime
         }
 
         /// <summary>
-        /// Resizes the pool. If the pool size is larger than count, the excess items will be removed.
+        /// Resizes the pool. If the pool size is larger than count, the excess layers will be removed.
         /// </summary>
         /// <param name="count">Target pool size in count.</param>
         public void Trim(int count)

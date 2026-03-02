@@ -11,26 +11,12 @@ using UnityEngine;
 
 namespace Jih.OpenGames.Breakout.UI
 {
-    [RequireComponent(typeof(CanvasGroup))]
-    public class PlayPageScript : MonoBehaviour, IUILayer
+    public class PlayPageScript : UILayerBaseScript
     {
         [SerializeField] LifeMarkScript[] _lifeMarks = Array.Empty<LifeMarkScript>();
 
         [SerializeField] GameObject? _startInfoRoot;
         GameObject StartInfoRoot => _startInfoRoot.ThrowIfNull(nameof(StartInfoRoot));
-
-        CanvasGroup? _canvasGroup;
-        CanvasGroup CanvasGroup
-        {
-            get
-            {
-                if (_canvasGroup == null)
-                {
-                    _canvasGroup = GetComponent<CanvasGroup>();
-                }
-                return _canvasGroup;
-            }
-        }
 
         void Awake()
         {
@@ -79,53 +65,21 @@ namespace Jih.OpenGames.Breakout.UI
             }
         }
 
-        CanvasGroup IUILayer.GetRootCanvasGroup()
+        protected override void OnAttaching()
         {
-            return CanvasGroup;
-        }
+            base.OnAttaching();
 
-        GameObject? IUILayer.GetFocusedObject()
-        {
-            return null;
-        }
-
-        void IUILayer.OnActivating()
-        {
-        }
-        void IUILayer.OnActivated()
-        {
-        }
-
-        void IUILayer.OnDeactivating()
-        {
-        }
-        void IUILayer.OnDeactivated()
-        {
-        }
-
-        void IUILayer.OnObjectFocusing()
-        {
-        }
-        void IUILayer.OnObjectFocused(GameObject? focusedObject)
-        {
-        }
-
-        void IUILayer.PerformAction(string id, object? args)
-        {
-        }
-
-        void IUILayer.OnAttaching()
-        {
             gameObject.SetActiveSelfIfDiff(true);
         }
 
-        void IUILayer.OnAttached()
-        {
-        }
-
-        void IUILayer.Detach()
+        protected override void Detach()
         {
             gameObject.SetActiveSelfIfDiff(false);
+        }
+
+        public override GameObject? GetFocusedObject()
+        {
+            return null;
         }
     }
 }
