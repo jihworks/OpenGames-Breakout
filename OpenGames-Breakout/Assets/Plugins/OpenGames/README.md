@@ -59,6 +59,45 @@ public override void End(IState? next)
 }
 ```
 
+### Enhanced UGUI
+
+UGUI (Unity Graphical User Interface) has served as the default GUI framework for Unity for a long time.  
+While it is stable and flexible, it was designed years ago and does not inherently reflect modern UI paradigms.  
+This framework reinforces and expands UGUI's capabilities to provide practical, modern UI features.  
+These functionalities are located in the `Jih.OpenGames.UI` namespace.
+
+#### Layer and Layer Stack
+
+Modern game GUIs frequently employ the concept of stacking UI elements.  
+This provides a flexible UX, allowing users to navigate complex information and return to previous interaction points seamlessly.  
+Since UGUI is not natively specialized for this behavior, it requires manual implementation of render order sorting, input blocking, and event propagation.
+
+* **UILayerStack**: Manages UI layers in a stack format and automatically handles the visibility and hierarchy of the topmost layers. This includes automated render order sorting and input blocking. It also supports **top-most layers** (always on top) and **bottom-least layers** (always at the base).
+* **IUILayer**: An interface that abstracts a UI layer, allowing it to receive and process various events dispatched from the `UILayerStack`.
+* **UILayerBaseScript**: A convenience script that implements `IUILayer` while inheriting from `MonoBehaviour`. It is designed to be attached to the root `GameObject` of a UI layer.
+```csharp
+// Set the base page
+UILayerStack.SetBottomLeast(PlayPage);
+
+// Push popups onto the stack sequentially
+UILayerStack.Push(DialogPopup1);
+UILayerStack.Push(DialogPopup2);
+UILayerStack.Push(DialogPopup3);
+
+// Remove the last popup
+UILayerStack.Pop(DialogPopup3);
+
+// Remove all layers above the target so it becomes the current topmost layer
+UILayerStack.MakeCurrent(PlayPage);
+
+// Assign and remove a top-most layer
+UILayerStack.SetTopMost(FadeInOutOverlay);
+UILayerStack.SetTopMost(null);
+
+// Custom event propagation
+UILayerStack.PerformAction("MyAction", new { Value = 123, });
+```
+
 ## Installation
 
 ### Git (Recommended)
