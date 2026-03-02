@@ -13,7 +13,7 @@ namespace Jih.OpenGames.Data
 {
     public class ReferenceEqualityComparer : IEqualityComparer<object?>, IEqualityComparer
     {
-        public static ReferenceEqualityComparer Instance { get; } = new ReferenceEqualityComparer();
+        public static ReferenceEqualityComparer Instance { get; } = new();
 
         public new bool Equals(object? x, object? y)
         {
@@ -28,7 +28,7 @@ namespace Jih.OpenGames.Data
 
     public class ReferenceEqualityComparer<T> : IEqualityComparer<T>
     {
-        public static ReferenceEqualityComparer<T> Instance { get; } = new ReferenceEqualityComparer<T>();
+        public static ReferenceEqualityComparer<T> Instance { get; } = new();
 
         public bool Equals(T x, T y)
         {
