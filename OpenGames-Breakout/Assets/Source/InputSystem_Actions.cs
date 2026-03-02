@@ -104,6 +104,15 @@ namespace Jih.OpenGames.Breakout
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""52b12068-2237-4a87-a188-626c41b09bea"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""83087b51-c7a3-4558-b567-673a7627bc78"",
@@ -248,6 +257,39 @@ namespace Jih.OpenGames.Breakout
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d737be36-ff2a-4978-85fc-900877601e99"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aef46782-e524-4ddd-b396-342d65a05859"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3b5a7aa-e730-484c-8c34-91a63ae9ffb2"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Joystick"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""87d1b718-caa0-47b6-8333-864f61578281"",
                     ""path"": ""*/{Cancel}"",
                     ""interactions"": """",
@@ -276,7 +318,7 @@ namespace Jih.OpenGames.Breakout
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""7607c7b6-cd76-4816-beef-bd0341cfe950"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -842,6 +884,7 @@ namespace Jih.OpenGames.Breakout
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+            m_Player_Start = m_Player.FindAction("Start", throwIfNotFound: true);
             m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -937,6 +980,7 @@ namespace Jih.OpenGames.Breakout
         private readonly InputActionMap m_Player;
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Move;
+        private readonly InputAction m_Player_Start;
         private readonly InputAction m_Player_Cancel;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
@@ -953,6 +997,10 @@ namespace Jih.OpenGames.Breakout
             /// Provides access to the underlying input action "Player/Move".
             /// </summary>
             public InputAction @Move => m_Wrapper.m_Player_Move;
+            /// <summary>
+            /// Provides access to the underlying input action "Player/Start".
+            /// </summary>
+            public InputAction @Start => m_Wrapper.m_Player_Start;
             /// <summary>
             /// Provides access to the underlying input action "Player/Cancel".
             /// </summary>
@@ -986,6 +1034,9 @@ namespace Jih.OpenGames.Breakout
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
                 @Cancel.started += instance.OnCancel;
                 @Cancel.performed += instance.OnCancel;
                 @Cancel.canceled += instance.OnCancel;
@@ -1003,6 +1054,9 @@ namespace Jih.OpenGames.Breakout
                 @Move.started -= instance.OnMove;
                 @Move.performed -= instance.OnMove;
                 @Move.canceled -= instance.OnMove;
+                @Start.started -= instance.OnStart;
+                @Start.performed -= instance.OnStart;
+                @Start.canceled -= instance.OnStart;
                 @Cancel.started -= instance.OnCancel;
                 @Cancel.performed -= instance.OnCancel;
                 @Cancel.canceled -= instance.OnCancel;
@@ -1313,6 +1367,13 @@ namespace Jih.OpenGames.Breakout
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnMove(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Start" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnStart(InputAction.CallbackContext context);
             /// <summary>
             /// Method invoked when associated input action "Cancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>

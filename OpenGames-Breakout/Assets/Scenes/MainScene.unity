@@ -153,6 +153,7 @@ MonoBehaviour:
   _paddle: {fileID: 1130471725}
   _blocksRoot: {fileID: 832402320}
   _ballGhostsRoot: {fileID: 1428062931}
+  _mainCanvas: {fileID: 1516004546}
 --- !u!4 &19895875
 Transform:
   m_ObjectHideFlags: 0
@@ -741,7 +742,7 @@ Transform:
   m_GameObject: {fileID: 832402319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: -220, z: 0}
+  m_LocalPosition: {x: -500, y: -220, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -882,6 +883,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3787318008481690078, guid: ea8116a8e4015bb45811fe90f577db28, type: 3}
   m_PrefabInstance: {fileID: 940035972}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1020985995
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1516004545}
+    m_Modifications:
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 932227394804619631, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+      propertyPath: m_Name
+      value: Play Page
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+--- !u!224 &1020985996 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 930567009670042263, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+  m_PrefabInstance: {fileID: 1020985995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1020985998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4756010932048344294, guid: 0baa6f222128c5449bca9a73249318e6, type: 3}
+  m_PrefabInstance: {fileID: 1020985995}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9413e4416a7e1e47830ba15a16c04f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Jih.OpenGames.Breakout::Jih.OpenGames.Breakout.UI.PlayPageScript
 --- !u!1001 &1058297366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1061,7 +1135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2585285558638367222, guid: 93be2f1997c007c489e96ac160e5548a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2585285558638367222, guid: 93be2f1997c007c489e96ac160e5548a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1141,7 +1215,7 @@ Transform:
   m_GameObject: {fileID: 1428062930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1222,6 +1296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1516004545}
+  - component: {fileID: 1516004546}
   - component: {fileID: 1516004544}
   - component: {fileID: 1516004543}
   - component: {fileID: 1516004542}
@@ -1262,11 +1337,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 2560, y: 1440}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1290,7 +1365,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1306,7 +1381,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1020985996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1314,6 +1390,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1516004546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516004541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f314a92e31b3f174da00f3a4ca2f8295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Jih.OpenGames.Breakout::Jih.OpenGames.Breakout.MainCanvas
+  _eventSystem: {fileID: 283701651}
+  _playPage: {fileID: 1020985998}
 --- !u!1 &1568565001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6107554140005637164, guid: 6cb2d26aa247cc944952b5ba3eaf8665, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6107554140005637164, guid: 6cb2d26aa247cc944952b5ba3eaf8665, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1673,6 +1763,7 @@ MonoBehaviour:
   _blockColumnCount: 6
   _blockRowCount: 8
   _blockOccupyingSize: {x: 200, y: 100}
+  _maxPlayerLifeCount: 5
 --- !u!4 &2084522562
 Transform:
   m_ObjectHideFlags: 0

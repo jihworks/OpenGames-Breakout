@@ -20,6 +20,13 @@ namespace Jih.OpenGames.Breakout
             public virtual void FixedUpdate()
             {
             }
+
+            public virtual void InputPlayerStart()
+            {
+            }
+            public virtual void InputPlayerCancel()
+            {
+            }
         }
 
         class Sleep : State
@@ -29,31 +36,43 @@ namespace Jih.OpenGames.Breakout
             }
         }
 
-        class Play : State
+        class StandBy : State
         {
-            public Play(Referee owner) : base(owner)
+            public StandByReason Reason { get; }
+
+            public StandBy(Referee owner, StandByReason reason) : base(owner)
             {
+                Reason = reason;
             }
 
             public override void Begin(IState? prev)
             {
                 base.Begin(prev);
 
-                Owner.PlaceBlocksForBeginPlay();
-                Owner.Paddle.BeginPlay(Owner);
-                Owner.Ball.BeginPlay(Owner);
+                Owner.Paddle.SetToInitialLocation();
+                Owner.Ball.SetToInitialLocation();
+                Owner.CurrentBallDirection = Owner.GetNextInitialBallShootDirection();
+
+                Owner.PlayPage.SetStartInfo(true);
             }
 
             public override void End(IState? next)
             {
-                Owner.Ball.EndPlay();
-                Owner.Paddle.EndPlay();
-                foreach (var block in Owner._blocks)
-                {
-                    block.EndPlay();
-                }
+                Owner.PlayPage.SetStartInfo(false);
 
                 base.End(next);
+            }
+
+            public override void InputPlayerStart()
+            {
+                Owner.CurrentState = new Play(Owner);
+            }
+        }
+
+        class Play : State
+        {
+            public Play(Referee owner) : base(owner)
+            {
             }
 
             public override void Update()
@@ -61,6 +80,8 @@ namespace Jih.OpenGames.Breakout
                 base.Update();
 
                 Owner.UpdateGhosts();
+                Owner.CheckVictory();
+                Owner.CheckKillY();
             }
 
             public override void FixedUpdate()
@@ -69,6 +90,20 @@ namespace Jih.OpenGames.Breakout
 
                 Owner.UpdatePaddleInput();
                 Owner.UpdateBallMovement();
+            }
+        }
+
+        class Victory : State
+        {
+            public Victory(Referee owner) : base(owner)
+            {
+            }
+        }
+
+        class Defeated : State
+        {
+            public Defeated(Referee owner) : base(owner)
+            {
             }
         }
     }

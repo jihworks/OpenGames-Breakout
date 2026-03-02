@@ -13,6 +13,9 @@ namespace Jih.OpenGames.Breakout
     {
         public Referee? Referee { get; private set; }
 
+        /// <summary>
+        /// In game space. The Paddle is child of 'Game Root' in the main scene. So, local location is used.
+        /// </summary>
         Vector3 _initialLocalLocation;
 
         void Awake()
@@ -23,13 +26,16 @@ namespace Jih.OpenGames.Breakout
         public void BeginPlay(Referee referee)
         {
             Referee = referee;
-
-            transform.localPosition = _initialLocalLocation;
         }
 
         public void EndPlay()
         {
             Referee = null;
+        }
+
+        public void SetToInitialLocation()
+        {
+            transform.localPosition = _initialLocalLocation;
         }
     }
 }

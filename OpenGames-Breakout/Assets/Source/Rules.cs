@@ -20,7 +20,7 @@ namespace Jih.OpenGames.Breakout
         [SerializeField] float _ballRadius = 20f;
         public float BallRadius => _ballRadius;
 
-        [SerializeField] float _killY = -720f;
+        [SerializeField, Tooltip("In game space. Check 'Game Root' in the main scene.")] float _killY = -720f;
         public float KillY => _killY;
 
         [SerializeField] float _baseBallSpeed = 500f;
@@ -50,7 +50,7 @@ namespace Jih.OpenGames.Breakout
         [SerializeField] float _basePaddleSpeed = 500f;
         public float BasePaddleSpeed => _basePaddleSpeed;
 
-        [SerializeField, Tooltip("Half range. Exclude half width of paddle.")] float _paddleXLimit = 600f;
+        [SerializeField, Tooltip("In game space. Half range. Exclude half width of paddle.")] float _paddleXLimit = 600f;
         public float PaddleXLimit => _paddleXLimit;
 
         [SerializeField] float _paddleBodyHitAngleRange = 30f;
@@ -69,6 +69,10 @@ namespace Jih.OpenGames.Breakout
 
         [SerializeField] Vector2 _blockOccupyingSize = new(200f, 100f);
         public Vector2 BlockOccupyingSize => _blockOccupyingSize;
+
+        [Header("Player")]
+        [SerializeField] int _maxPlayerLifeCount = 5;
+        public int MaxPlayerLifeCount => _maxPlayerLifeCount;
 
         public Rules()
         {

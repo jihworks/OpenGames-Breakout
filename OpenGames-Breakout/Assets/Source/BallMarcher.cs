@@ -42,6 +42,8 @@ namespace Jih.OpenGames.Breakout
 
         readonly List<RaycastHit2D> _hitsBuffer = new();
 
+        /// <param name="location">In world space.</param>
+        /// <param name="direction">In world space.</param>
         public void March(Vector2 location, float radius, Vector2 direction, float distance)
         {
             CurrentLocation = location;

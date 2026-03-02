@@ -5,6 +5,7 @@
 
 #nullable enable
 
+using Jih.OpenGames.Breakout.UI;
 using Jih.OpenGames.Runtime;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Jih.OpenGames.Breakout
         public static Main Instance => _instance.Get();
 
         [SerializeField] InputSystemUIInputModule? _inputSystemUIInputModule;
-        public InputSystemUIInputModule InputSystemUIInputModule => _inputSystemUIInputModule.ThrowIfNull(nameof(InputSystemUIInputModule));
+        InputSystemUIInputModule InputSystemUIInputModule => _inputSystemUIInputModule.ThrowIfNull(nameof(InputSystemUIInputModule));
 
         [Header("Game Board")]
         [SerializeField] BallScript? _ball;
@@ -32,6 +33,10 @@ namespace Jih.OpenGames.Breakout
 
         [SerializeField] Transform? _ballGhostsRoot;
         public Transform BallGhostsRoot => _ballGhostsRoot.ThrowIfNull(nameof(BallGhostsRoot));
+
+        [Header("UI")]
+        [SerializeField] MainCanvas? _mainCanvas;
+        public MainCanvas MainCanvas => _mainCanvas.ThrowIfNull(nameof(MainCanvas));
 
         public Player Player { get; } = new();
 

@@ -24,6 +24,8 @@ namespace Jih.OpenGames.Breakout
             _ballMarcher = new ProphetBallMarcher(this);
         }
 
+        /// <param name="startLocation">In world space.</param>
+        /// <param name="startDirection">In world space.</param>
         public void Predict(Vector2 startLocation, float ballRadius, Vector2 startDirection)
         {
             _predictedHitLocations.Clear();
