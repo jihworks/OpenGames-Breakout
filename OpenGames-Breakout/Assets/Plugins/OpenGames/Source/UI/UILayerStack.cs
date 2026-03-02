@@ -34,8 +34,8 @@ namespace Jih.OpenGames.UI
     /// This class will attach GameObject of the layer to directly under the <see cref="ContainerTransform"/>.<br/>
     /// This class getting the layer's GameObject from the <see cref="IUILayer.GetRootCanvasGroup"/>.<br/>
     /// <br/>
-    /// But when the layer removed from the stack structure, this class will call <see cref="IUILayer.Dettach"/> and <b>do nothing</b>.<br/>
-    /// Because if dettach the GameObject, RectTransform's information will be lost. So the layer should handle the dettach mechanism by itself.<br/>
+    /// But when the layer removed from the stack structure, this class will call <see cref="IUILayer.Detach"/> and <b>do nothing</b>.<br/>
+    /// Because if detach the GameObject, RectTransform's information will be lost. So the layer should handle the detach mechanism by itself.<br/>
     /// Set GameObject.activeSelf or move the GameObject to other backing Canvas may be solution.<br/>
     /// </para>
     /// <para>
@@ -367,7 +367,7 @@ namespace Jih.OpenGames.UI
         {
             IUILayer layer = item.Layer;
 
-            layer.Dettach();
+            layer.Detach();
         }
 
         void Sort()

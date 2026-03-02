@@ -123,7 +123,7 @@ namespace Jih.OpenGames.Breakout.UI
         {
         }
 
-        void IUILayer.Dettach()
+        void IUILayer.Detach()
         {
             gameObject.SetActiveSelfIfDiff(false);
         }

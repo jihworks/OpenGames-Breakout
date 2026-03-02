@@ -93,6 +93,6 @@ namespace Jih.OpenGames.UI
         /// <remarks>
         /// The <see cref="UILayerStack"/> does nothing in this situation. The layer should destroy or hide itself.
         /// </remarks>
-        public void Dettach();
+        public void Detach();
     }
 }
